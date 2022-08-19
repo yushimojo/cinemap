@@ -4,17 +4,17 @@
   <%= render "public/shared/error_messages", resource: resource %>
   
   <div class="field">
-    <%= f.label "ニックネーム" %>
+    <%= f.label "ニックネーム" %><br>
     <%= f.text_field :nickname, class: 'form-control' %>
   </div>
  
   <div class="field">
-    <%= f.label "年齢", class:'control-label' %>
+    <%= f.label "年齢", class:'control-label' %><br>
     <%= f.select :age, [["",""], ["10代","10"], ["20代","20"], ["30代","30"], ["40代","40"], ["50代","50"], ["60代","60"], ["70代以上","70"] ], {},   class: 'form-control' %>
   </div>
  
   <div class="field">
-    <%= f.label "性別", class:'control-label' %>
+    <%= f.label "性別", class:'control-label' %><br>
     <%= f.select :gender, [["",""], ["女性","女性"], ["男性","男性"]], {},   class: 'form-control' %>
   </div>
   

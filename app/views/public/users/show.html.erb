@@ -1,0 +1,11 @@
+<div>
+  <h3><%= User.nickname %></h3>
+  <%= image_tag User.get_profile_image(100,100) %>
+  <% if @user.age.present? %> &nbsp;<%= @user.age %>代 <% end %>
+  &nbsp;<%= @user.sex %></p>
+  <p>自己紹介</p>
+  <p><%= @user.introduction %></p>
+</div>
+
+<!-- ユーザーの投稿一覧 -->
+
