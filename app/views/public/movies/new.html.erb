@@ -2,16 +2,18 @@
 
 <%= form_with model: @movie, url: public_movies_path, local: true do |form| %>
 
-<p><%= form.label :title %><br>
+
+      
+<h4>作品名</h4>
 <%= form.text_field :title %> 
-</p>
 
-<p><%= form.label :body %><br>
+
+<h4>詳細</h4>
 <%= form.text_area :body %> 
-</p>
 
-<p><%= form.submit %> 
-</p>
+
+<%= form.submit %> 
+
 
 <% end %>
 

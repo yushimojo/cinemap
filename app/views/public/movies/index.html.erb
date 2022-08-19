@@ -1,1 +1,13 @@
-index
+<% @movie.each do |movie| %>
+<div>
+  <%= link_to public_movie_path(movie.id) do %>
+  <%= image_tag movie.get_image %>
+  <% end %>
+  
+  <%= image_tag movie.get_image %>
+  <p>投稿ユーザー画像：<%= image_tag '11703.png' %></p>
+  <p>作品名 : <%= movie.title %></p>
+  <p>詳細 : <%= movie.body %></p>
+  <p>ユーザーネーム：<%= movie.user.nickname %></p>
+</div>
+<% end %>

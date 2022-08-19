@@ -1,0 +1,13 @@
+<div>
+  <%= image_tag @movie.get_image %>
+  <p>投稿ユーザー画像：<%= image_tag '11703.png' %></p>
+  <p>作品名 : <%= @movie.title %></p>
+  <p>詳細 : <%= @movie.body %></p>
+  <p>ユーザーネーム：<%= @movie.user.nickname %></p>
+  <p>投稿日：<%= @movie.created_at.strftime('%Y/%m/%d') %></p>
+  
+  <% if @movie.user == current_user %>
+    <%= link_to "削除", public_movie_path(@movie), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+  <% end %>
+  <%= link_to "編集", edit_public_movie_path(@movie.id) %>
+</div>
