@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2022_08_19_124423) do
     t.integer "age", null: false
     t.string "gender", null: false
     t.text "introduction"
+    t.string "image", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

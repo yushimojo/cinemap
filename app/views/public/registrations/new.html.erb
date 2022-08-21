@@ -4,6 +4,10 @@
   <%= render "public/shared/error_messages", resource: resource %>
   
   <div class="field">
+    <%= f.label "プロフィール画像" %><br>
+    <%= f.file_field :image %><br>
+  
+  <div class="field">
     <%= f.label "ニックネーム" %><br>
     <%= f.text_field :nickname, class: 'form-control' %>
   </div>
