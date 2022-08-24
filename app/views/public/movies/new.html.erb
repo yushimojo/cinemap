@@ -3,7 +3,7 @@
 <%= form_with model: @movie, url: public_movies_path, local: true do |form| %>
 
 <h4>画像</h4>
-<%= f.file_field :image, accept: "image/*" %>
+<%= form.file_field :image, accept: "image/*" %>
       
 <h4>作品名</h4>
 <%= form.text_field :title %> 
