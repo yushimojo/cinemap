@@ -12,6 +12,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string  :gender,        null: false
       t.text    :introduction
       t.string  :image,        null: false
+      t.string  :profile,        null: false
+      t.string  :profile_image_id
+      
 
 
 

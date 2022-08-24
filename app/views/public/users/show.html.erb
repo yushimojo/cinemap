@@ -1,6 +1,6 @@
 <div>
   <h3><%= @user.nickname %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
+  <%= image_tag @user.get_image(100,100) %>
   <% if @user.age.present? %> &nbsp;<%= @user.age %>代 <% end %>
   &nbsp;<%= @user.sex %></p>
   <p>自己紹介</p>

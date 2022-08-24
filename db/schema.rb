@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2022_08_19_124423) do
     t.integer "user_id"
     t.string "title", null: false
     t.text "body", null: false
+    t.string "image", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -92,6 +93,8 @@ ActiveRecord::Schema.define(version: 2022_08_19_124423) do
     t.string "gender", null: false
     t.text "introduction"
     t.string "image", null: false
+    t.string "profile", null: false
+    t.string "profile_image_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
