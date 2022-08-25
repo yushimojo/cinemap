@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end 
     resources :users, only: [:show, :edit, :update, :destroy]
     resource :favorites, only: [:create, :destroy]
+    get "search" => "searches#search"
       
   end
     
