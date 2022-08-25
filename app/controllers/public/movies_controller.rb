@@ -17,6 +17,7 @@ class Public::MoviesController < ApplicationController
     
     def show
     @movie = Movie.find(params[:id])
+    @movie_comment = MovieComment.new
     end
     
     def edit
@@ -34,6 +35,8 @@ class Public::MoviesController < ApplicationController
     @movie.destroy
     redirect_to public_movies_path 
     end
+    
+    
   
 private
  def movie_params

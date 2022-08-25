@@ -10,6 +10,9 @@
     <%= link_to "削除", public_movie_path(@movie), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
   <% end %>
   <%= link_to "編集", edit_public_movie_path(@movie.id) %>
+  </div>
+  
+  <div>
   <% if @movie.favorited_by?(current_user) %>
     <p>
       <%= link_to public_favorites_path(@movie), method: :delete do %>
@@ -22,5 +25,23 @@
         ♡<%= @movie.favorites.count %> いいね
       <% end %>
     </p>
+  <% end %>
+</div>
+
+<div>
+  <p>コメント件数：<%= @movie.movie_comments.count %></p>
+  <% @movie.movie_comments.each do |movie| %>
+    <p><%= image_tag movie_comment.user.get_profile_image(100,100) %></p>
+    <%= movie_comment.user.nickname %>
+    <%= movie_comment.created_at.strftime('%Y/%m/%d') %><%= movie_comment.comment %>
+    <% if movie_comment.user == current_user %>
+      <%= link_to "削除", public_movie_movie_comment_path(movie_comment.movie, movie_comment), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <%= form_with model: [@movie, @movie_comment], url: public_movie_path do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
   <% end %>
 </div>

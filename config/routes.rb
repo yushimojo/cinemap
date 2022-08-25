@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   # 会員用
   namespace :public do
-    resources :movies
+    resources :movies do
+    resources :movie_comments, only: [:create, :destroy]
+  end 
     resources :users, only: [:show, :edit, :update, :destroy]
     resource :favorites, only: [:create, :destroy]
       

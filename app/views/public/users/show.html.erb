@@ -19,5 +19,6 @@
   <p>作品名：<%= movie.title %></p>
   <p>説明：<%= movie.body %></p>
   <p>ユーザーネーム：<%= movie.user.nickname %></p>
+  <p><%= link_to "#{movie.movie_comments.count} コメント", public_movie_path(movie.id) %></p>
 </div>
 <% end %>
