@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :movies
     resources :users, only: [:show, :edit, :update, :destroy]
+    resource :favorites, only: [:create, :destroy]
       
   end
     

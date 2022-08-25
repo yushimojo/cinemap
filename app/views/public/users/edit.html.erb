@@ -1,0 +1,28 @@
+<h2>プロフィール編集</h2>
+<%= form_with model: @user, url: public_user_path do |f| %>
+  <div class="field">
+    <%= f.label "プロフィール画像" %><br>
+    <%= f.file_field :image %><br>
+  
+  <div class="field">
+    <%= f.label "ニックネーム" %><br>
+    <%= f.text_field :nickname, class: 'form-control' %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label "年齢", class:'control-label' %><br>
+    <%= f.select :age, [["",""], ["10代","10"], ["20代","20"], ["30代","30"], ["40代","40"], ["50代","50"], ["60代","60"], ["70代以上","70"] ], {},   class: 'form-control' %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label "性別", class:'control-label' %><br>
+    <%= f.select :gender, [["",""], ["女性","女性"], ["男性","男性"]], {},   class: 'form-control' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "自己紹介" %><br>
+    <%= f.text_field :introduction, class: 'form-control' %>
+  </div>
+  
+  <%= f.submit "変更を保存" %>
+<% end %>

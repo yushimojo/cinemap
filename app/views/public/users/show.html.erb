@@ -5,13 +5,14 @@
   &nbsp;<%= @user.gender %></p>
   <p>自己紹介</p>
   <p><%= @user.introduction %></p>
+  <p><%= link_to "プロフィール編集", edit_public_user_path %></p>
 </div>
 
 <!-- ユーザーの投稿一覧 -->
 
 <% @movies.each do |movie| %>
 <div>
-  <%= link_to movie_path(movie.id) do %>
+  <%= link_to public_user_path(movie.id) do %>
     <%= image_tag movie.get_image %>
   <% end %>
   <p>投稿ユーザー画像：<%= image_tag movie.user.get_profile_image(100,100) %></p>

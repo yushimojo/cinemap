@@ -6,7 +6,8 @@ class User < ApplicationRecord
          
   has_one_attached :profile_image
          
-  has_many :users, dependent: :destroy
+  has_many :movies, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   validates :nickname, presence: true, length: { maximum: 50 }
   validates :introduction, length: { maximum: 255 }
   

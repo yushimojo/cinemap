@@ -12,6 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string  :gender,        null: false
       t.text    :introduction
       t.string  :image 
+    
       
       
 
