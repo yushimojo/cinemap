@@ -9,5 +9,6 @@ class Public::SearchesController < ApplicationController
     else
       @movies = Movie.looks(params[:search], params[:word])
     end
+    redirect_to public_searches_path
   end
 end

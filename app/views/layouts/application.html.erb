@@ -1,45 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cinema</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    <header>
-    <% if user_signed_in? %>
-    <li>
-    <%= link_to '投稿フォーム', new_public_movie_path %>
-  </li>
-     <li>
-      <%= link_to 'マイページ', public_user_path(current_user.id) %>    
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-      <div class="search_form">
-      <%= form_with url: public_search_path, local: true, method: :get do |f| %>
-      <%= f.text_field :word %>
-      <%= f.select :range, options_for_select([['User'], ['Movie']]) %>
-      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
-      <%= f.submit "検索" %>
-    <% end %>
-  </div>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-      
-      <% end %>
-  </header>
+    <%= render 'layouts/header' %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

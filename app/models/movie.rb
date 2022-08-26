@@ -27,5 +27,7 @@ class Movie < ApplicationRecord
       @movie = Movie.where("title LIKE?","%#{word}%")
     else
       @movie = Movie.all
+    end
   end
-end
+  
+end 

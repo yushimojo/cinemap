@@ -1,0 +1,49 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid"> <a class="navbar-brand">
+      <img src="/cinema/app/assets/images/12345.jpeg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      Cinemap
+    </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item text-left">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "ホーム", root_path, class: "nav-link active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "新規投稿", new_public_movie_path, class: "nav-link active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "投稿一覧", public_movies_path, class: "nav-link active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "マイページ", public_user_path(current_user.id), class: "nav-link active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link active", method: :delete %>
+              </li>
+              <form class="d-flex ">
+                <%= form_with url: public_searches_path, local: true, method: :get do |f| %>
+                  <%= f.text_field :word %>
+                    <%= f.select :range, options_for_select([['User'], ['Movie']]) %>
+                      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %> <button class="btn btn-outline-success" type="submit">検索</button> </form>
+              <% end %>
+      </div>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "新規登録", new_user_registration_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: "nav-link active" %>
+        </li>
+        <% end %>
+          </ul>
+    </div>
+  </nav>
+</header>

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :movies, dependent: :destroy
    has_many :movie_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+ 
   validates :nickname, presence: true, length: { maximum: 50 }
   validates :introduction, length: { maximum: 255 }
   
@@ -33,5 +34,12 @@ class User < ApplicationRecord
       @user = User.all
     end
   
- end
- end
+  end
+  
+   def self.guest
+    find_or_create_by!(nickname: 'guestuser' ,email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.nickname = "ゲストユーザー"
+    end
+  end
+end
