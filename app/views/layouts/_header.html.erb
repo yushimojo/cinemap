@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <div class="container-fluid"> <a class="navbar-brand">
-      <img src="/cinema/app/assets/images/12345.jpeg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      <img src="/cinema/app/assets/images/09876.jpeg" alt="" width="30" height="24" class="d-inline-block align-text-top">
       Cinemap
     </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,14 +25,24 @@
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link active", method: :delete %>
               </li>
+              </li>
+              </ul>
+              
+              <div class="ml-auto">
               <form class="d-flex ">
                 <%= form_with url: public_searches_path, local: true, method: :get do |f| %>
                   <%= f.text_field :word %>
                     <%= f.select :range, options_for_select([['User'], ['Movie']]) %>
-                      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %> <button class="btn btn-outline-success" type="submit">検索</button> </form>
+                      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %> <button class="btn btn-outline-success" type="submit">検索</button> 
+                      </form>
+                      
               <% end %>
+              </div>
+              
       </div>
       <% else %>
+      
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
         <li class="nav-item">
           <%= link_to "新規登録", new_user_registration_path, class: "nav-link active" %>
         </li>
@@ -44,6 +54,7 @@
         </li>
         <% end %>
           </ul>
+          
     </div>
   </nav>
 </header>
