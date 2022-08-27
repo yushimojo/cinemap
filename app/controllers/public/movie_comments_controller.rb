@@ -5,7 +5,7 @@ class Public::MovieCommentsController < ApplicationController
     comment.movie_id = movie.id
     comment.save
     redirect_to public_movie_path
-  end
+    end
   
   def destroy
     MovieComment.find(params[:id]).destroy
@@ -15,6 +15,6 @@ class Public::MovieCommentsController < ApplicationController
   private
 
   def movie_comment_params
-    params.require(:movie).permit(:comment)
+    params.require(:movie_comment).permit(:comment)
   end
 end
