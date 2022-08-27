@@ -21,7 +21,7 @@
   
   <p class="card-title">詳細</p>：<%= @movie.body %></p>
 
-<span><i class="fas fa-user"></i> By <%= @movie.user.nickname %> ｜ </span>
+<span><i class="fas fa-user"></i> By <%= link_to @movie.user.nickname, public_user_path(@movie.user) %> ｜ </span>
 
 <span><i class="fa fa-calendar"></i> <%= @movie.created_at.strftime('%Y/%m/%d') %> ｜ </span>
 

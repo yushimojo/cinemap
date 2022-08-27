@@ -1,15 +1,24 @@
 <div>
+  <% if @user == current_user %>
   <h3><%= @user.nickname %></h3>
+  <p class="text-small"><%= link_to @user.followings.count, followings_public_user_path(@user) %> フォロー <%= link_to @user.followers.count, follower_public_user_path(@user) %> フォロワー</p>
   <%= image_tag @user.get_profile_image(100,100) %>
   <% if @user.age.present? %> &nbsp;<%= @user.age %>代 <% end %>
   &nbsp;<%= @user.gender %></p>
   <p>自己紹介</p>
   <p><%= @user.introduction %></p>
-  <% if @user.nickname != "ゲストユーザー" %>
-<div class='row'>
- <p><%= link_to "プロフィール編集", edit_public_user_path, class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user}" %></p>
-</div>
-<% end %>
+  <p><%= link_to "プロフィール編集", edit_public_user_path %></p>
+  <% else %>
+  <% if @user.is_followed_by?(current_user) %>
+  <%= link_to public_user_relationships_path(@user), method: :delete do %>
+      <button class="btn btn-danger">フォロー解除</button>
+      <% end %>
+      <% else %>
+    <%= link_to public_user_relationships_path(@user), method: :post do %>
+      <button class="btn btn-primary">フォロー</button>
+    <% end %>
+    <% end %>
+  <% end %>
   
   
 </div>

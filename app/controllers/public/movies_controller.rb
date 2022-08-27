@@ -12,7 +12,8 @@ class Public::MoviesController < ApplicationController
     end
     
     def index
-    @movie = Movie.all
+    @movies = Movie.all
+    
     end
     
     def show
