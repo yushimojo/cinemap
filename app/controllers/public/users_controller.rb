@@ -1,4 +1,6 @@
 class Public::UsersController < ApplicationController
+     before_action :authenticate_user!
+  before_action :ensure_guest_user, only: [:edit]
     def show
         @user = User.find(params[:id])
         @movies = @user.movies 
@@ -17,6 +19,13 @@ class Public::UsersController < ApplicationController
       render :edit
     end
     end
+    
+     def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.nickname == "ゲストユーザー"
+      redirect_to public_user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
+  end  
     
     
     private

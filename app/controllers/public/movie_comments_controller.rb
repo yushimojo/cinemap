@@ -4,7 +4,7 @@ class Public::MovieCommentsController < ApplicationController
     comment = current_user.movie_comments.new(movie_comment_params)
     comment.movie_id = movie.id
     comment.save
-    redirect_to public_movie_path
+    redirect_to public_movie_path(movie.id)
     end
   
   def destroy
