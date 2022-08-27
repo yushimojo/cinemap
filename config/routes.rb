@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     resources :movie_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end 
-    resources :users, only: [:show, :edit, :update, :destroy] 
+    resources :users, only: [:show, :edit, :update, :destroy] do
+      resource :relationships, only: [:create, :destroy]
+      get :followings, on: :member
+      get :follower, on: :member
+    end 
     
     resources :searches, only: [:search, :index] 
       
