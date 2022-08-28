@@ -28,16 +28,7 @@
               </li>
               </ul>
               
-              <div class="ml-auto">
-              <form class="d-flex ">
-                <%= form_with url: public_searches_path, local: true, method: :get do |f| %>
-                  <%= f.text_field :word %>
-                    <%= f.select :range, options_for_select([['User'], ['Movie']]) %>
-                      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %> <button class="btn btn-outline-success" type="submit">検索</button> 
-                      </form>
-                      
-              <% end %>
-              </div>
+              
               
       </div>
       <% else %>

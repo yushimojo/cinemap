@@ -16,18 +16,5 @@ class Movie < ApplicationRecord
     favorites.exists?(user_id: user.id)
     end
   
-  def self.looks(search, word)
-    if search == "perfect_match"
-      @movie = Movie.where("title LIKE?","#{word}")
-    elsif search == "forward_match"
-      @movie = Movie.where("title LIKE?","#{word}%")
-    elsif search == "backward_match"
-      @movie = Movie.where("title LIKE?","%#{word}")
-    elsif search == "partial_match"
-      @movie = Movie.where("title LIKE?","%#{word}%")
-    else
-      @movie = Movie.all
-    end
-  end
   
 end 
