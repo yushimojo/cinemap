@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one_attached :profile_image
          
   has_many :movies, dependent: :destroy
-   has_many :movie_comments, dependent: :destroy
+  has_many :movie_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
   has_many :relationships, foreign_key: :following_id
@@ -20,9 +20,6 @@ class User < ApplicationRecord
     reverse_of_relationships.find_by(following_id: user.id).present?
   end 
   
-  
-    
- 
   validates :nickname, presence: true, length: { maximum: 50 }
   validates :introduction, length: { maximum: 255 }
   
@@ -35,12 +32,12 @@ class User < ApplicationRecord
   end
   
   
-   def self.guest
+  def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.nickname = "ゲストユーザー"
       user.age = 20
       user.gender = "男性"
     end
-   end
+  end
 end

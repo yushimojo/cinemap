@@ -1,8 +1,19 @@
-<div>
+<div class="container marketing">
+<div class="row d-flex justify-content-center">
+  <div class="col-3 mx-auto mt-4">
+<div class ="text-center">
+
+
+<div class="row">
+  <div class="col-3">
+    
+    <%= image_tag @user.get_profile_image(100,100), class:"mt-3 rounded-circle";%>
+    </div>
+    <div class="col-9">
   <h3><%= @user.nickname %></h3>
   
   <p class="text-small"><%= link_to @user.followings.count, followings_public_user_path(@user) %> フォロー <%= link_to @user.followers.count, followers_public_user_path(@user) %> フォロワー</p>
-  <%= image_tag @user.get_profile_image(100,100) %>
+  
   <% if @user.age.present? %> &nbsp;<%= @user.age %>代 <% end %>
   &nbsp;<%= @user.gender %></p>
   <p>自己紹介</p>
@@ -23,24 +34,60 @@
   <% end %>
   
   
-  
-  
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
 
 
 <!-- ユーザーの投稿一覧 -->
-
+<div class="card-list-containar d-flex align-content-around flex-wrap justify-content-center ">
 <% @movies.each do |movie| %>
-<div>
+<div class="card w-25 mx-2 mt-4 shadow-lg ">
+
   <%= link_to public_user_path(movie.id) do %>
-    <%= image_tag movie.get_image %>
+    <%= image_tag movie.get_image, class:"card-img-top"; %>
   <% end %>
-  <p>投稿ユーザー画像：<%= image_tag movie.user.get_profile_image(100,100) %></p>
-  <p>作品名：<%= movie.title %></p>
-  <p>説明：<%= movie.body %></p>
-  <p>ユーザーネーム：<%= movie.user.nickname %></p>
-  <p><%= link_to "#{movie.movie_comments.count} コメント", public_movie_path(movie.id) %></p>
+  
+  <div class="card-body">
+
+<div class="row">
+
+<div class="col-2">
+  <p><%= image_tag movie.user.get_profile_image(50,50), class:"mt-3 rounded-circle";  %></p>
+   </div>
+    
+    <div class="col-10">
+
+<p class="card-title">
+  
+  <strong><i class="far fa-flag"></i><span> <%= movie.title %></span></strong>
+
+
+
+</p>
+  <p class="card-text">説明：<%= movie.body %></p>
+  <span><i class="fas fa-user"></i> By <%= movie.user.nickname %> ｜ </span>
+  <p><%= link_to "#{movie.movie_comments.count} コメント", public_movie_path(movie.id), class:"text-dark" %></p>
+</div>
+
+</div>
+
+</div>
+
 </div>
 <% end %>
+
+
+
+</div>
+  
+
+
+
+

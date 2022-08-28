@@ -1,5 +1,6 @@
 class Public::RelationshipsController < ApplicationController
     before_action :authenticate_user!
+    
   def create
       following = current_user.relationships.build(follower_id: params[:user_id])
       following.save
@@ -11,4 +12,5 @@ class Public::RelationshipsController < ApplicationController
       following.destroy
       redirect_to request.referrer || root_path
   end 
+  
 end

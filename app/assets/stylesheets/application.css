@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.first-view {
+    width: 100%;
+    height: 800px;
+    margin: 0 auto;
+    background-image: url('top.jpeg');
+    background-size: cover;
+    background-position: center;
+ }
+
