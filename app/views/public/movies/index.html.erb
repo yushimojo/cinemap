@@ -1,6 +1,6 @@
-<div class="card-list-containar py-5">
+<div class="card-list-containar d-flex align-content-around flex-wrap justify-content-center">
   <%@movies.each do |movie| %>
-  <div class="card w-25 mx-auto mt-4 shadow-lg">
+  <div class="card w-25 mx-2 mt-4 shadow-lg">
     <%= link_to public_movie_path(movie.id) do %>
     <%= image_tag movie.get_image, size: "300x300", class:"card-img-top"; %>
     <%end %>
